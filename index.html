@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenida</title>
+    <script>
+        function Datos() {
+            const nombre = document.getElementById("nombre").value;
+            const apellido = document.getElementById("apellido").value;
+            const fechaNacimiento = new Date(document.getElementById("fechaNacimiento").value);
+
+            const hoy = new Date();
+            const diferenciaTiempo = hoy - fechaNacimiento;
+            const diasVividos = Math.floor(diferenciaTiempo / (1000 * 60 * 60 * 24));
+
+            const mensajeBienvenida = `Bienvenido ${nombre} ${apellido}.`;
+            const mensajeDiasVividos = `Has vivido ${diasVividos} días.`;
+
+            document.getElementById("bienvenida").innerText = mensajeBienvenida;
+            document.getElementById("diasVividos").innerText = mensajeDiasVividos;
+        }
+    </script>
+</head>
+<body>
+    <form onsubmit="Datos2(); return false;">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" required><br>
+        <label for="apellido">Apellido:</label>
+        <input type="text" id="apellido" required><br>
+        <label for="fechaNacimiento">Fecha de Nacimiento:</label>
+        <input type="date" id="fechaNacimiento" required><br>
+        <button type="submit">Enviar</button>
+    </form>
+    <div id="bienvenida"></div>
+    <div id="diasVividos"></div>
+</body>
+</html>
